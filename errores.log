@@ -1,0 +1,1758 @@
+[23/Sep/2020 00:44:08] ERROR [django.server:154] "GET / HTTP/1.1" 500 59
+[23/Sep/2020 00:47:48] ERROR [django.request:222] Internal Server Error: /
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 86, in volverHome
+    if not request.user.is_authenticated():
+TypeError: 'bool' object is not callable
+[23/Sep/2020 00:47:48] ERROR [django.server:154] "GET / HTTP/1.1" 500 66607
+[23/Sep/2020 00:50:38] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 21, in login
+    if request.user.is_authenticated():
+TypeError: 'bool' object is not callable
+[23/Sep/2020 00:50:38] ERROR [django.server:154] "GET /login/ HTTP/1.1" 500 66706
+[23/Sep/2020 02:41:52] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 66, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 27, in _get_backends
+    backend = load_backend(backend_path)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 21, in load_backend
+    return import_string(path)()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/module_loading.py", line 17, in import_string
+    module = import_module(module_path)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/code/tadese/authentication.py", line 27
+    print e.message
+          ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(e.message)?
+[23/Sep/2020 02:41:52] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 118410
+[23/Sep/2020 02:42:21] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 66, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 27, in _get_backends
+    backend = load_backend(backend_path)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 21, in load_backend
+    return import_string(path)()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/module_loading.py", line 17, in import_string
+    module = import_module(module_path)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/code/tadese/authentication.py", line 122
+    except Exception, e:
+                    ^
+SyntaxError: invalid syntax
+[23/Sep/2020 02:42:21] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 118242
+[23/Sep/2020 02:42:57] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 66, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 27, in _get_backends
+    backend = load_backend(backend_path)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 21, in load_backend
+    return import_string(path)()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/module_loading.py", line 17, in import_string
+    module = import_module(module_path)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/code/tadese/authentication.py", line 122
+    except Exception e:
+                     ^
+SyntaxError: invalid syntax
+[23/Sep/2020 02:42:57] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 118241
+[23/Sep/2020 22:03:17] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 66, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 27, in _get_backends
+    backend = load_backend(backend_path)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 21, in load_backend
+    return import_string(path)()
+  File "/usr/local/lib/python3.8/site-packages/django/utils/module_loading.py", line 17, in import_string
+    module = import_module(module_path)
+  File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 779, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 916, in get_code
+  File "<frozen importlib._bootstrap_external>", line 846, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/code/tadese/authentication.py", line 26
+    print password
+          ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(password)?
+[23/Sep/2020 22:03:17] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 123163
+[23/Sep/2020 22:28:59] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 44, in login
+    if user.userprofile.tipoUsr==0:
+AttributeError: 'User' object has no attribute 'userprofile'
+[23/Sep/2020 22:28:59] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 68532
+[23/Sep/2020 22:30:36] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 44, in login
+    if user.userprofile.tipoUsr==0:
+AttributeError: 'User' object has no attribute 'userprofile'
+[23/Sep/2020 22:30:36] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 68532
+[23/Sep/2020 22:39:22] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 40, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 39, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 48, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:39:22] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 92098
+[23/Sep/2020 22:41:17] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 39, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 47, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:41:17] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 91996
+[23/Sep/2020 22:42:27] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 40, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 48, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:42:27] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 91974
+[23/Sep/2020 22:43:03] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 40, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 48, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:43:03] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 91976
+[23/Sep/2020 22:45:31] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 40, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 48, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:45:31] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 91976
+[23/Sep/2020 22:50:00] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 40, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(request,username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 48, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:50:00] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 92109
+[23/Sep/2020 22:52:06] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 39, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(request,username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 48, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:52:06] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 92131
+[23/Sep/2020 22:52:11] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 39, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(request,username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 48, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:52:11] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 92131
+[23/Sep/2020 22:52:33] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 39, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(request,username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 49, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:52:33] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 92109
+[23/Sep/2020 22:52:47] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/code/tadese/authentication.py", line 39, in authenticate
+    user = User.objects.get(username=idResp)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/db/models/query.py", line 406, in get
+    raise self.model.DoesNotExist(
+django.contrib.auth.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 38, in login
+    user = authenticate(request,username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 73, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/code/tadese/authentication.py", line 49, in authenticate
+    nombre = padr.nombre_boleta[:30]
+TypeError: 'NoneType' object is not subscriptable
+[23/Sep/2020 22:52:47] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 92123
+[23/Sep/2020 22:59:53] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 43, in login
+    if user.userprofile.tipoUsr==0:
+AttributeError: 'User' object has no attribute 'userprofile'
+[23/Sep/2020 22:59:53] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 68514
+[23/Sep/2020 23:02:37] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 55, in login
+    LOGIN_REDIRECT_URL = reverse('padrones_responsable')
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'padrones_responsable' not found. 'padrones_responsable' is not a valid view function or pattern name.
+[23/Sep/2020 23:02:37] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 79083
+[23/Sep/2020 23:05:59] ERROR [django.request:222] Internal Server Error: /login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tasasweb/views.py", line 55, in login
+    LOGIN_REDIRECT_URL = reverse('padrones_responsable')
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'padrones_responsable' not found. 'padrones_responsable' is not a valid view function or pattern name.
+[23/Sep/2020 23:05:59] ERROR [django.server:154] "POST /login/ HTTP/1.1" 500 79083
+[23/Sep/2020 23:06:59] ERROR [django.request:222] Internal Server Error: /padrones/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'ver_cuotas' not found. 'ver_cuotas' is not a valid view function or pattern name.
+[23/Sep/2020 23:06:59] ERROR [django.server:154] "GET /padrones/ HTTP/1.1" 500 253767
+[23/Sep/2020 23:13:44] ERROR [django.request:222] Internal Server Error: /padrones/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'ver_cuotas' not found. 'ver_cuotas' is not a valid view function or pattern name.
+[23/Sep/2020 23:13:44] ERROR [django.server:154] "GET /padrones/ HTTP/1.1" 500 253767
+[23/Sep/2020 23:14:35] ERROR [django.request:222] Internal Server Error: /cuotas/1961/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'drei_reliquidarBoleta' not found. 'drei_reliquidarBoleta' is not a valid view function or pattern name.
+[23/Sep/2020 23:14:35] ERROR [django.server:154] "GET /cuotas/1961/0/ HTTP/1.1" 500 360220
+[23/Sep/2020 23:15:51] ERROR [django.request:222] Internal Server Error: /cuotas/1961/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'drei_reliquidarBoleta' not found. 'drei_reliquidarBoleta' is not a valid view function or pattern name.
+[23/Sep/2020 23:15:51] ERROR [django.server:154] "GET /cuotas/1961/0/ HTTP/1.1" 500 360355
+[23/Sep/2020 23:21:46] ERROR [django.request:222] Internal Server Error: /cuotas/1961/0/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'drei_reliquidarBoleta' not found. 'drei_reliquidarBoleta' is not a valid view function or pattern name.
+[23/Sep/2020 23:21:46] ERROR [django.server:154] "GET /cuotas/1961/0/ HTTP/1.1" 500 360355
+[23/Sep/2020 23:21:49] ERROR [django.request:222] Internal Server Error: /cuotas/1961/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'drei_reliquidarBoleta' not found. 'drei_reliquidarBoleta' is not a valid view function or pattern name.
+[23/Sep/2020 23:21:49] ERROR [django.server:154] "GET /cuotas/1961/ HTTP/1.1" 500 359876
+[23/Sep/2020 23:23:26] ERROR [django.request:222] Internal Server Error: /cuotas/398/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 443, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/usr/local/lib/python3.8/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/usr/local/lib/python3.8/site-packages/django/urls/resolvers.py", line 660, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'imprimirPDF' not found. 'imprimirPDF' is not a valid view function or pattern name.
+[23/Sep/2020 23:23:26] ERROR [django.server:154] "GET /cuotas/398/ HTTP/1.1" 500 300473
+[23/Sep/2020 23:25:56] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1392, in generarPunitoriosLiq
+    total  = calcularPunitorios(request,c,None,0)
+  File "/code/tadese/views.py", line 1359, in calcularPunitorios
+    importe = (cuota.saldo - nobonificable) * (1-(bonificable/100)) + nobonificable
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+[23/Sep/2020 23:25:56] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 15468
+[23/Sep/2020 23:26:09] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    raise ValueError(
+ValueError: The view tadese.views.generarPunitoriosLiq didn't return an HttpResponse object. It returned None instead.
+[23/Sep/2020 23:26:09] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 57885
+[23/Sep/2020 23:27:33] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1392, in generarPunitoriosLiq
+    total  = calcularPunitorios(request,c,None,0)
+  File "/code/tadese/views.py", line 1359, in calcularPunitorios
+    importe = (cuota.saldo - nobonificable) * (1-(bonificable/100)) + nobonificable
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+[23/Sep/2020 23:27:33] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 78866
+[23/Sep/2020 23:30:44] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1392, in generarPunitoriosLiq
+    total  = calcularPunitorios(request,c,None,0)
+  File "/code/tadese/views.py", line 1359, in calcularPunitorios
+    importe = (cuota.saldo - nobonificable) * (1-(bonificable/100)) + nobonificable
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+[23/Sep/2020 23:30:44] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 78875
+[23/Sep/2020 23:32:40] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1393, in generarPunitoriosLiq
+    total  = calcularPunitorios(request,c,None,0)
+  File "/code/tadese/views.py", line 1294, in calcularPunitorios
+    nobonificable = Decimal(cuota.tributo.nobonificable)
+TypeError: conversion from NoneType to Decimal is not supported
+[23/Sep/2020 23:32:40] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 78161
+[23/Sep/2020 23:33:27] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1394, in generarPunitoriosLiq
+    total  = calcularPunitorios(request,c,None,0)
+  File "/code/tadese/views.py", line 1295, in calcularPunitorios
+    nobonificable = Decimal(cuota.tributo.nobonificable)
+TypeError: conversion from NoneType to Decimal is not supported
+[23/Sep/2020 23:33:27] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 78156
+[23/Sep/2020 23:34:30] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1396, in generarPunitoriosLiq
+    total  = calcularPunitorios(request,c,None,0)
+  File "/code/tadese/views.py", line 1363, in calcularPunitorios
+    importe = (saldo - nobonificable) * (1-(bonificable/100)) + nobonificable
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+[23/Sep/2020 23:34:30] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 79051
+[23/Sep/2020 23:35:28] ERROR [django.request:222] Internal Server Error: /punitoriosLiq/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1394, in generarPunitoriosLiq
+    cuotasAct[i]=total['punit1']
+  File "/code/tadese/views.py", line 1361, in calcularPunitorios
+    importe1 =  importe + porc1
+TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+[23/Sep/2020 23:35:28] ERROR [django.server:154] "GET /punitoriosLiq/?cuotas%5B%5D=166010&cuotas%5B%5D=165528 HTTP/1.1" 500 79073
+[23/Sep/2020 23:36:58] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1455, in imprimirPDFLiqWeb
+    from Code128 import Code128
+ModuleNotFoundError: No module named 'Code128'
+[23/Sep/2020 23:36:58] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 72766
+[23/Sep/2020 23:37:48] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1456, in imprimirPDFLiqWeb
+    from .base64 import b64encode
+  File "/code/tadese/base64.py", line 74
+    except binascii.Error, msg:
+                         ^
+SyntaxError: invalid syntax
+[23/Sep/2020 23:37:48] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 72528
+[23/Sep/2020 23:40:04] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1531, in imprimirPDFLiqWeb
+    context['codbar'] = armarImgCodBar(cod)
+  File "/code/tadese/views.py", line 362, in armarImgCodBar
+    import imprimirPDF
+ModuleNotFoundError: No module named 'imprimirPDF'
+[23/Sep/2020 23:40:04] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 80345
+[23/Sep/2020 23:42:46] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1531, in imprimirPDFLiqWeb
+    context['codbar'] = armarImgCodBar(cod)
+  File "/code/tadese/views.py", line 362, in armarImgCodBar
+    import imprimirPDF
+ModuleNotFoundError: No module named 'imprimirPDF'
+[23/Sep/2020 23:42:46] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 80345
+[23/Sep/2020 23:45:07] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1531, in imprimirPDFLiqWeb
+    context['codbar'] = armarImgCodBar(cod)
+  File "/code/tadese/views.py", line 362, in armarImgCodBar
+    from .imprimirPDF import get_image3
+  File "/code/tadese/imprimirPDF.py", line 41, in <module>
+    import StringIO
+ModuleNotFoundError: No module named 'StringIO'
+[23/Sep/2020 23:45:07] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 93384
+[23/Sep/2020 23:46:56] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1535, in imprimirPDFLiqWeb
+    return render_to_pdf_response(request, template, context)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 158, in render_to_pdf_response
+    pdf = render_to_pdf(template, context, using=using, encoding=encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 138, in render_to_pdf
+    return html_to_pdf(content, encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 64, in html_to_pdf
+    pdf = pisa.pisaDocument(src, dest, encoding=encoding,
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/document.py", line 144, in pisaDocument
+    doc.build(context.story)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 1076, in build
+    self.handle_flowable(flowables)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 925, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/frames.py", line 217, in _add
+    flowable.drawOn(canv, self._x + self._leftExtraIndent, y, _sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1484, in draw
+    self._drawCell(cellval, cellstyle, (x, y), (width, height))
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1607, in _drawCell
+    v.drawOn(self.canv,x,y)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 1210, in drawOn
+    _Container.drawOn(self, canv, x, y, _sW=_sW, scale=scale)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 957, in drawOn
+    c.drawOn(canv,x,y,_sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 661, in draw
+    Paragraph.draw(self)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1148, in draw
+    self.drawPara(self.debug)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1651, in drawPara
+    dpl(tx, _offsets[i], f, noJustifyLast and i == lim)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 393, in _centerDrawParaLineX
+    _putFragLine(m, tx, line)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 250, in _putFragLine
+    tx._canvas.drawImage(cbDefn.image.getImage(), cur_x_s, cur_y + iy0, w, h, mask='auto')
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfgen/canvas.py", line 985, in drawImage
+    imgObj = pdfdoc.PDFImageXObject(name, image, mask=mask)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2085, in __init__
+    self.loadImageFromSRC(source)   #it is already a PIL Image
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2181, in loadImageFromSRC
+    raw = im.getRGBData()
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 432, in getRGBData
+    im = im.convert('RGB')
+  File "/usr/local/lib/python3.8/site-packages/PIL/Image.py", line 902, in convert
+    self.load()
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 280, in load
+    raise_oserror(err_code)
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 65, in raise_oserror
+    raise OSError(message + " when reading image file")
+OSError: broken data stream when reading image file
+[23/Sep/2020 23:46:56] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 274348
+[23/Sep/2020 23:54:11] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1535, in imprimirPDFLiqWeb
+    return render_to_pdf_response(request, template, context)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 158, in render_to_pdf_response
+    pdf = render_to_pdf(template, context, using=using, encoding=encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 138, in render_to_pdf
+    return html_to_pdf(content, encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 64, in html_to_pdf
+    pdf = pisa.pisaDocument(src, dest, encoding=encoding,
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/document.py", line 144, in pisaDocument
+    doc.build(context.story)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 1076, in build
+    self.handle_flowable(flowables)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 925, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/frames.py", line 217, in _add
+    flowable.drawOn(canv, self._x + self._leftExtraIndent, y, _sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1484, in draw
+    self._drawCell(cellval, cellstyle, (x, y), (width, height))
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1607, in _drawCell
+    v.drawOn(self.canv,x,y)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 1210, in drawOn
+    _Container.drawOn(self, canv, x, y, _sW=_sW, scale=scale)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 957, in drawOn
+    c.drawOn(canv,x,y,_sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 661, in draw
+    Paragraph.draw(self)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1148, in draw
+    self.drawPara(self.debug)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1651, in drawPara
+    dpl(tx, _offsets[i], f, noJustifyLast and i == lim)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 393, in _centerDrawParaLineX
+    _putFragLine(m, tx, line)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 250, in _putFragLine
+    tx._canvas.drawImage(cbDefn.image.getImage(), cur_x_s, cur_y + iy0, w, h, mask='auto')
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfgen/canvas.py", line 985, in drawImage
+    imgObj = pdfdoc.PDFImageXObject(name, image, mask=mask)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2085, in __init__
+    self.loadImageFromSRC(source)   #it is already a PIL Image
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2181, in loadImageFromSRC
+    raw = im.getRGBData()
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 432, in getRGBData
+    im = im.convert('RGB')
+  File "/usr/local/lib/python3.8/site-packages/PIL/Image.py", line 902, in convert
+    self.load()
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 280, in load
+    raise_oserror(err_code)
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 65, in raise_oserror
+    raise OSError(message + " when reading image file")
+OSError: broken data stream when reading image file
+[23/Sep/2020 23:54:11] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 274348
+[23/Sep/2020 23:59:03] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1535, in imprimirPDFLiqWeb
+    return render_to_pdf_response(request, template, context)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 158, in render_to_pdf_response
+    pdf = render_to_pdf(template, context, using=using, encoding=encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 138, in render_to_pdf
+    return html_to_pdf(content, encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 64, in html_to_pdf
+    pdf = pisa.pisaDocument(src, dest, encoding=encoding,
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/document.py", line 144, in pisaDocument
+    doc.build(context.story)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 1076, in build
+    self.handle_flowable(flowables)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 925, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/frames.py", line 217, in _add
+    flowable.drawOn(canv, self._x + self._leftExtraIndent, y, _sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1484, in draw
+    self._drawCell(cellval, cellstyle, (x, y), (width, height))
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1607, in _drawCell
+    v.drawOn(self.canv,x,y)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 1210, in drawOn
+    _Container.drawOn(self, canv, x, y, _sW=_sW, scale=scale)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 957, in drawOn
+    c.drawOn(canv,x,y,_sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 661, in draw
+    Paragraph.draw(self)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1148, in draw
+    self.drawPara(self.debug)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1651, in drawPara
+    dpl(tx, _offsets[i], f, noJustifyLast and i == lim)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 393, in _centerDrawParaLineX
+    _putFragLine(m, tx, line)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 250, in _putFragLine
+    tx._canvas.drawImage(cbDefn.image.getImage(), cur_x_s, cur_y + iy0, w, h, mask='auto')
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfgen/canvas.py", line 985, in drawImage
+    imgObj = pdfdoc.PDFImageXObject(name, image, mask=mask)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2085, in __init__
+    self.loadImageFromSRC(source)   #it is already a PIL Image
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2181, in loadImageFromSRC
+    raw = im.getRGBData()
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 432, in getRGBData
+    im = im.convert('RGB')
+  File "/usr/local/lib/python3.8/site-packages/PIL/Image.py", line 902, in convert
+    self.load()
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 280, in load
+    raise_oserror(err_code)
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 65, in raise_oserror
+    raise OSError(message + " when reading image file")
+OSError: broken data stream when reading image file
+[23/Sep/2020 23:59:03] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 274347
+[24/Sep/2020 00:04:39] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1535, in imprimirPDFLiqWeb
+    return render_to_pdf_response(request, template, context)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 158, in render_to_pdf_response
+    pdf = render_to_pdf(template, context, using=using, encoding=encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 138, in render_to_pdf
+    return html_to_pdf(content, encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 64, in html_to_pdf
+    pdf = pisa.pisaDocument(src, dest, encoding=encoding,
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/document.py", line 144, in pisaDocument
+    doc.build(context.story)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 1076, in build
+    self.handle_flowable(flowables)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 925, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/frames.py", line 217, in _add
+    flowable.drawOn(canv, self._x + self._leftExtraIndent, y, _sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1484, in draw
+    self._drawCell(cellval, cellstyle, (x, y), (width, height))
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1607, in _drawCell
+    v.drawOn(self.canv,x,y)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 1210, in drawOn
+    _Container.drawOn(self, canv, x, y, _sW=_sW, scale=scale)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 957, in drawOn
+    c.drawOn(canv,x,y,_sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 661, in draw
+    Paragraph.draw(self)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1148, in draw
+    self.drawPara(self.debug)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1651, in drawPara
+    dpl(tx, _offsets[i], f, noJustifyLast and i == lim)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 393, in _centerDrawParaLineX
+    _putFragLine(m, tx, line)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 250, in _putFragLine
+    tx._canvas.drawImage(cbDefn.image.getImage(), cur_x_s, cur_y + iy0, w, h, mask='auto')
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfgen/canvas.py", line 985, in drawImage
+    imgObj = pdfdoc.PDFImageXObject(name, image, mask=mask)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2085, in __init__
+    self.loadImageFromSRC(source)   #it is already a PIL Image
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2181, in loadImageFromSRC
+    raw = im.getRGBData()
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 432, in getRGBData
+    im = im.convert('RGB')
+  File "/usr/local/lib/python3.8/site-packages/PIL/Image.py", line 902, in convert
+    self.load()
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 280, in load
+    raise_oserror(err_code)
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 65, in raise_oserror
+    raise OSError(message + " when reading image file")
+OSError: broken data stream when reading image file
+[24/Sep/2020 00:04:39] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 274347
+[24/Sep/2020 00:07:04] ERROR [django.request:222] Internal Server Error: /imprimirLiqWeb/18/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/django/contrib/auth/decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/code/tadese/views.py", line 1531, in imprimirPDFLiqWeb
+    return render_to_pdf_response(request, template, context)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 158, in render_to_pdf_response
+    pdf = render_to_pdf(template, context, using=using, encoding=encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 138, in render_to_pdf
+    return html_to_pdf(content, encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 64, in html_to_pdf
+    pdf = pisa.pisaDocument(src, dest, encoding=encoding,
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/document.py", line 144, in pisaDocument
+    doc.build(context.story)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 1076, in build
+    self.handle_flowable(flowables)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 925, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/frames.py", line 217, in _add
+    flowable.drawOn(canv, self._x + self._leftExtraIndent, y, _sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1484, in draw
+    self._drawCell(cellval, cellstyle, (x, y), (width, height))
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1607, in _drawCell
+    v.drawOn(self.canv,x,y)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 1210, in drawOn
+    _Container.drawOn(self, canv, x, y, _sW=_sW, scale=scale)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 957, in drawOn
+    c.drawOn(canv,x,y,_sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 661, in draw
+    Paragraph.draw(self)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1148, in draw
+    self.drawPara(self.debug)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1651, in drawPara
+    dpl(tx, _offsets[i], f, noJustifyLast and i == lim)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 393, in _centerDrawParaLineX
+    _putFragLine(m, tx, line)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 250, in _putFragLine
+    tx._canvas.drawImage(cbDefn.image.getImage(), cur_x_s, cur_y + iy0, w, h, mask='auto')
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfgen/canvas.py", line 985, in drawImage
+    imgObj = pdfdoc.PDFImageXObject(name, image, mask=mask)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2085, in __init__
+    self.loadImageFromSRC(source)   #it is already a PIL Image
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2181, in loadImageFromSRC
+    raw = im.getRGBData()
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 432, in getRGBData
+    im = im.convert('RGB')
+  File "/usr/local/lib/python3.8/site-packages/PIL/Image.py", line 902, in convert
+    self.load()
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 280, in load
+    raise_oserror(err_code)
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 65, in raise_oserror
+    raise OSError(message + " when reading image file")
+OSError: broken data stream when reading image file
+[24/Sep/2020 00:07:04] ERROR [django.server:154] "GET /imprimirLiqWeb/18/ HTTP/1.1" 500 273946
+[24/Sep/2020 00:07:54] ERROR [django.request:222] Internal Server Error: /imprimir/166010/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tadese/views.py", line 552, in imprimirPDF
+    return render_to_pdf_response(request, template, context)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 158, in render_to_pdf_response
+    pdf = render_to_pdf(template, context, using=using, encoding=encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 138, in render_to_pdf
+    return html_to_pdf(content, encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 64, in html_to_pdf
+    pdf = pisa.pisaDocument(src, dest, encoding=encoding,
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/document.py", line 144, in pisaDocument
+    doc.build(context.story)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 1076, in build
+    self.handle_flowable(flowables)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 925, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/frames.py", line 217, in _add
+    flowable.drawOn(canv, self._x + self._leftExtraIndent, y, _sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1484, in draw
+    self._drawCell(cellval, cellstyle, (x, y), (width, height))
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1607, in _drawCell
+    v.drawOn(self.canv,x,y)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 1210, in drawOn
+    _Container.drawOn(self, canv, x, y, _sW=_sW, scale=scale)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 957, in drawOn
+    c.drawOn(canv,x,y,_sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 661, in draw
+    Paragraph.draw(self)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1148, in draw
+    self.drawPara(self.debug)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1651, in drawPara
+    dpl(tx, _offsets[i], f, noJustifyLast and i == lim)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 393, in _centerDrawParaLineX
+    _putFragLine(m, tx, line)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 250, in _putFragLine
+    tx._canvas.drawImage(cbDefn.image.getImage(), cur_x_s, cur_y + iy0, w, h, mask='auto')
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfgen/canvas.py", line 985, in drawImage
+    imgObj = pdfdoc.PDFImageXObject(name, image, mask=mask)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2085, in __init__
+    self.loadImageFromSRC(source)   #it is already a PIL Image
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2181, in loadImageFromSRC
+    raw = im.getRGBData()
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 432, in getRGBData
+    im = im.convert('RGB')
+  File "/usr/local/lib/python3.8/site-packages/PIL/Image.py", line 902, in convert
+    self.load()
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 280, in load
+    raise_oserror(err_code)
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 65, in raise_oserror
+    raise OSError(message + " when reading image file")
+OSError: broken data stream when reading image file
+[24/Sep/2020 00:07:54] ERROR [django.server:154] "GET /imprimir/166010/ HTTP/1.1" 500 269859
+[24/Sep/2020 00:10:54] ERROR [django.request:222] Internal Server Error: /drei2/24/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 143, in _get_response
+    response = response.render()
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/usr/local/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    content = template.render(context, self._request)
+  File "/usr/local/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/test/utils.py", line 96, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/usr/local/lib/python3.8/site-packages/django/template/library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "/usr/local/lib/python3.8/site-packages/bootstrap3/templatetags/bootstrap3.py", line 505, in bootstrap_field
+    return render_field(*args, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/bootstrap3/forms.py", line 54, in render_field
+    return renderer_cls(field, **kwargs).render()
+  File "/usr/local/lib/python3.8/site-packages/bootstrap3/renderers.py", line 85, in render
+    return mark_safe(self._render())
+  File "/usr/local/lib/python3.8/site-packages/bootstrap3/renderers.py", line 480, in _render
+    html = self.field.as_widget(attrs=self.widget.attrs)
+  File "/usr/local/lib/python3.8/site-packages/django/forms/boundfield.py", line 89, in as_widget
+    return widget.render(
+TypeError: render() got an unexpected keyword argument 'renderer'
+[24/Sep/2020 00:10:54] ERROR [django.server:154] "GET /drei2/24/ HTTP/1.1" 500 274474
