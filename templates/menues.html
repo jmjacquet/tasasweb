@@ -12,7 +12,7 @@
                       {% if estudio %}
                       <a href="#" type="button" class="btn btn-principal btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
                       <ul class="dropdown-menu" role="menu">                        
-                        <li><a href="{% url 'estudio_editar' estudio.id_estudioc %}" role="button" >Editar Datos del Estudio</a></li>                        
+                        <li><a href="{% url 'tadese:estudio_editar' estudio.id_estudioc %}" role="button" >Editar Datos del Estudio</a></li>                        
                       </ul>
                       {% endif %}
                     </div>

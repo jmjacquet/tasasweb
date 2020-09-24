@@ -19,7 +19,7 @@ class PrependWidget(Widget): # pragma: no cover
         self.base_widget = base_widget(*args, **kwargs)
         self.data = data
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None,renderer=None):
         u"""Render base widget and add bootstrap spans"""
         field = self.base_widget.render(name, value, attrs)
         return mark_safe((

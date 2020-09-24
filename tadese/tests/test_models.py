@@ -15,7 +15,7 @@ class TributoTest(TestCase):
 	def test_unicode(self):
 		un_tributo = mommy.make(Tributo,descripcion='TGI')      
 		self.assertTrue(isinstance(un_tributo, Tributo))             
-		self.assertEqual(un_tributo.__unicode__(), un_tributo.descripcion)
+		self.assertEqual(un_tributo.__str__(), un_tributo.descripcion)
 
 	def test_get_abreviatura(self):
 		un_tributo = mommy.make(Tributo,abreviatura='TGIU')
@@ -28,14 +28,14 @@ class TributoInteresTest(TestCase):
 		un_tributo_i = mommy.make(TributoInteres,id_tributo=1,interes=0)      
 		self.assertTrue(isinstance(un_tributo_i, TributoInteres)) 
 		descr = u'%s - %s' % (un_tributo_i.id_tributo,un_tributo_i.interes)            
-		self.assertEqual(un_tributo_i.__unicode__(), descr)
+		self.assertEqual(un_tributo_i.__str__(), descr)
 
 class DriEstudioTest(TestCase):
 	def test_unicode(self):
 		estudio = mommy.make(DriEstudio)      
 		self.assertTrue(isinstance(estudio, DriEstudio)) 
 		descr = u'%s - %s' % (estudio.numero, estudio.denominacion)
-		self.assertEqual(estudio.__unicode__(), descr)
+		self.assertEqual(estudio.__str__(), descr)
 
 class CuotasTest(TestCase):        
 	def setUp(self):
@@ -49,7 +49,7 @@ class CuotasTest(TestCase):
 	def test_unicode(self):
 		self.assertTrue(isinstance(self.cuota, Cuotas))
 		descr = u'%s --> %s' % (self.cuota.padron, self.cuota.id_padron)        
-		self.assertEqual(self.cuota.__unicode__(), descr)
+		self.assertEqual(self.cuota.__str__(), descr)
 
 	def test_get_datos(self):
 		descr = u'%s/%s-%s(%s)' % (self.cuota.cuota,self.cuota.anio,self.cuota.padron, self.cuota.tributo.abreviatura)
@@ -97,10 +97,10 @@ class DriCuotaActividadTest(TestCase):
 		cuota_activp = mommy.make(DriCuotaActividad,actividad_principal='S')      		
 		detalle = u'%s - %s' % (cuota_activ.codigo,cuota_activ.denominacion)
 		detallep = u'(*) %s - %s' % (cuota_activp.codigo,cuota_activp.denominacion)  
-		self.assertEqual(cuota_activ.__unicode__()[:200], detalle)
-		self.assertNotEqual(cuota_activ.__unicode__()[:200], detallep)
-		self.assertEqual(cuota_activp.__unicode__()[:200], detallep)
-		self.assertNotEqual(cuota_activp.__unicode__()[:200], detalle)
+		self.assertEqual(cuota_activ.__str__()[:200], detalle)
+		self.assertNotEqual(cuota_activ.__str__()[:200], detallep)
+		self.assertEqual(cuota_activp.__str__()[:200], detallep)
+		self.assertNotEqual(cuota_activp.__str__()[:200], detalle)
 
 	def test_get_actividad(self):
 		cuota_activ = mommy.make(DriCuotaActividad)      		
@@ -116,19 +116,19 @@ class DriBoletaTest(TestCase):
 	def test_unicode(self):
 		boleta = mommy.make(DriBoleta,fechapago=vencido)       
 		descr = u'%s %s %s' % (boleta.id_padron,boleta.anio,boleta.mes)       
-		self.assertEqual(boleta.__unicode__(), descr)
+		self.assertEqual(boleta.__str__(), descr)
 	
 class DriBoleta_actividadesTest(TestCase):
 	def test_unicode(self):
 		boleta = mommy.make(DriBoleta_actividades)       
 		descr = u'%s' % (boleta.activ_descr)      
-		self.assertEqual(boleta.__unicode__(), descr)
+		self.assertEqual(boleta.__str__(), descr)
 
 class SuscriptoresTest(TestCase):
 	def test_unicode(self):
 		suscr = mommy.make(Suscriptores)
 		descr = u'%s' % (suscr.id)    
-		self.assertEqual(suscr.__unicode__(), descr)
+		self.assertEqual(suscr.__str__(), descr)
 
 	def test_activa(self):
 		suscr_baja = mommy.make(Suscriptores,fecha_baja=vencido)       

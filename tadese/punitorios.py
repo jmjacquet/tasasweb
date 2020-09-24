@@ -12,6 +12,7 @@ def punitorios(c,fecha_punitorios,importe):
   # try:
     dias = 0
     cuota = c
+    meses = Decimal(0).quantize(Decimal("1"),decimal.ROUND_FLOOR)
     vencimiento = cuota.vencimiento
     seg_vencimiento = cuota.segundo_vencimiento
     if not importe:
@@ -20,7 +21,8 @@ def punitorios(c,fecha_punitorios,importe):
     if not seg_vencimiento:
       seg_vencimiento = vencimiento
     
-
+    importe = Decimal(importe).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)      
+    
     hoy=date.today()  
     coeficiente_acum = Decimal(0).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)
     coeficiente = Decimal(0).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)
@@ -37,7 +39,6 @@ def punitorios(c,fecha_punitorios,importe):
       return 0
     
     #Si no tiene segundo vencimiento entonces le pongo el mismo que el primero
-    
 
     # CORRE N DIAS SI TIENE CONFIGURADO EN TRIBUTO PARA CORRER LOS VENCIMIENTOS
     vencimiento=correr_vencimiento(cuota.vencimiento,seg_vencimiento,c.tributo)[0]
@@ -227,14 +228,14 @@ def punitorios(c,fecha_punitorios,importe):
     ------------------------------------------------------------------------'''
     if tipo_interes == 2:    
       if interes == None:           
-         interes = sitio.punitorios            
+         interes = sitio.punitorios                     
       try:
           dias = (seg_vencimiento - vencimiento).days
       except:
           dias = 0
       if dias < 0:
           dias = 0           
-      
+      interes = Decimal(interes).quantize(Decimal("0.000001"),decimal.ROUND_FLOOR)       
 
       if not interes_2ven:
         coef_calc = dias * interes / 30
@@ -242,7 +243,7 @@ def punitorios(c,fecha_punitorios,importe):
         coef_calc = dias * (interes_2ven / 100) / 30
 
       coeficiente_acum += coef_calc
-      
+      coeficiente_acum = Decimal(coeficiente_acum).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)      
 
       if ((fecha_punitorios > vencimiento) and (fecha_punitorios <= seg_vencimiento)):
         vencimiento = fecha_punitorios
@@ -259,11 +260,11 @@ def punitorios(c,fecha_punitorios,importe):
     if not tipo_interes:
     
       interes = sitio.punitorios
+      interes = Decimal(interes).quantize(Decimal("0.000001"),decimal.ROUND_FLOOR)       
       tipo_interes = sitio.tipo_punitorios
 
       if tipo_interes == None:
         tipo_interes = 1 
-        
 
     #tipo_interes = 1 MENSUAL se cobra interes si cambio el mes 
     if tipo_interes == 1:  
@@ -274,7 +275,7 @@ def punitorios(c,fecha_punitorios,importe):
           meses = 0
       if meses < 0:
           meses = 0 
-
+      meses = Decimal(meses).quantize(Decimal("1"),decimal.ROUND_FLOOR)    
       coeficiente = interes * meses
 
       #Si se calculo un interes entre el primer y seg vencimiento y de ahi en adelante es tipo_interes 1 entonces viene con la marca interes_especial S
@@ -297,6 +298,7 @@ def punitorios(c,fecha_punitorios,importe):
       if (dias > 0):
         meses += 1    
 
+      meses = Decimal(meses).quantize(Decimal("1"),decimal.ROUND_FLOOR)
       coeficiente = interes * meses
       if interes_especial:    
         coeficiente_acum += coeficiente
@@ -319,6 +321,8 @@ def punitorios(c,fecha_punitorios,importe):
 
         coeficiente_acum += coeficiente
         tipo_interes = 3      
+
+      coeficiente_acum = Decimal(coeficiente_acum).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)      
         
       
     # Por si calcula los intereses en negativo que se da cuando la fecha punitorios es menor a vencimiento *
@@ -329,13 +333,13 @@ def punitorios(c,fecha_punitorios,importe):
     if tipo_interes == 3:        
       coeficiente_acum = Decimal(coeficiente_acum).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)       
       intereses = importe * coeficiente_acum    
-      coef = coeficiente_acum  
-      
-      
+      coef = coeficiente_acum              
     else: #en cualquier otro caso  
       coeficiente = Decimal(coeficiente).quantize(Decimal("0.001"),decimal.ROUND_FLOOR) 
       intereses = importe * coeficiente    
       coef = coeficiente  
+
+    coeficiente = Decimal(coeficiente).quantize(Decimal("0.001"),decimal.ROUND_HALF_UP)
     
     if intereses < 0:
       intereses = Decimal(0).quantize(Decimal("0.01"))
@@ -354,294 +358,3 @@ def punitorios(c,fecha_punitorios,importe):
   #         print e.message    
   #         print 'importe:'+str(importe)+' coef:'+str(coef)+' interes:'+str(interes)+' dias:'+str(dias)+' total:'+str(intereses)
   #         return 0
-
-######################## ANTERIOR ###########################
-
-
-# def punitorios_rango(cuota,vencimiento,fecha_punit,valor):
-#     from .models import Configuracion
-#     porc = 0.000
-#     total = 0    
-#     importe = 0
-#     saldo = valor
-#     try:      
-#         fecha_punit = fecha_punit
-#         if cuota.segundo_vencimiento==None:
-#            vencimiento2 = vencimiento
-#         else:
-#            vencimiento2 = cuota.segundo_vencimiento           
-#            vencimiento2 = correr_vencimiento(vencimiento2,cuota.tributo)
-
-#         tipo_interes = cuota.tributo.tipo_interes
-#         interes = cuota.tributo.interes
-#         dias=0
-#         meses=0
-#         sitio = Configuracion.objects.all().first()
-#         #Si no tiene definido el interés, lo busco en la configuración
-#         if interes == None:           
-#            interes = sitio.punitorios
-           
-#         if tipo_interes == None:            
-#            tipo_interes = sitio.tipo_punitorios
-
-#         if tipo_interes == 10:
-#             from .models import TributoInteres
-            
-#             tributo_interes = TributoInteres.objects.filter(id_tributo=cuota.tributo.id_tributo,hasta__gte=vencimiento).order_by('desde')  
-#             # Por cada coeficiente que corresponda hago un calculo            
-#             for t in tributo_interes:
-#                 dias=0
-#                 meses=0
-                
-#                 try:                
-#                    interes = t.interes
-#                    tipo_interes = t.tipo_interes              
-#                 except TributoInteres.DoesNotExist:                       
-#                    tipo_interes = None
-#                    interes = None                             
-
-            
-#                 if tipo_interes == None:
-#                    tipo_interes = 1 
-                
-#                 if interes == None:
-#                    interes = 0                    
-
-#                 #DIARIO
-#                 if tipo_interes == 2:                        
-#                     try:
-#                         if (vencimiento >= t.desde):
-#                             if (fecha_punit >= t.hasta):
-#                                 dias = (t.hasta - vencimiento).days
-#                             else:
-#                                 dias = (fecha_punit - vencimiento).days
-#                         elif (fecha_punit >= t.desde):
-#                             dias = (fecha_punit - t.desde).days
-#                         else:
-#                             dias = 0                                                   
-#                     except:
-#                         dias = 0
-#                     if dias < 0:
-#                         dias = 0 
-#                     porc =  (interes / 30 ) * dias
-#                 #MENSUAL
-#                 elif tipo_interes == 1:
-#                     try:
-#                         if (vencimiento >= t.desde):
-#                             if (fecha_punit >= t.hasta):
-#                                 meses = (t.hasta - vencimiento).days / 30
-#                             else:
-#                                 meses = (fecha_punit - vencimiento).days / 30
-#                         elif (fecha_punit >= t.desde):
-#                             meses = (fecha_punit - t.desde).days / 30
-#                         else:
-#                             meses = 0                            
-#                     except:
-#                         meses = 0
-#                     if meses < 0:
-#                         meses = 0 
-#                     porc =  (interes * meses)                            
-#                 else:                                        
-
-#                     try:
-#                         if fecha_punit <= vencimiento:
-#                             porc = 0
-#                         else:
-#                             hf = t.hasta
-#                             df = t.desde    
-#                             if (t.hasta > fecha_punit):
-#                               hf = fecha_punit
-
-#                             if ((vencimiento >= df) and (vencimiento <= hf)):
-#                               dias = (hf - vencimiento).days
-#                             else:
-#                               dias = (hf - df).days
-#                     except:
-#                          dias = 0
-
-#                     if dias < 0:
-#                         dias = 0 
-
-#                     porc =  (interes / 30 ) * dias
-
-#                 if porc < 0:
-#                     porc = 0
-                                    
-#                 porc = Decimal(porc).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)                 
-#                 saldo = Decimal(saldo).quantize(Decimal("0.01"), decimal.ROUND_HALF_UP)             
-#                 total = Decimal(saldo * porc).quantize(Decimal("0.01"), decimal.ROUND_HALF_UP)                                            
-#                 importe += total 
-                    
-#     except Exception as e:
-#         print e.message
-    
-#     importe = Decimal(importe).quantize(Decimal("0.01"), decimal.ROUND_HALF_UP)     
-#     return importe
-
-# def punitorios(cuota,vencimiento,fecha_punit,importe=0):    
-#     porc = 0.000
-#     total = 0
-#     try:      
-#         print vencimiento
-#         print fecha_punit
-#         vencimiento2=correr_vencimiento(cuota.vencimiento,cuota.segundo_vencimiento,cuota.tributo)[1]           
-        
-#         tipo_interes = cuota.tributo.tipo_interes
-#         interes = cuota.tributo.interes
-#         dias=0
-#         meses=0
-#         interes_especial = False        
-#         sitio = Configuracion.objects.all().first()
-#         #Si no tiene definido el interés, lo busco en la configuración
-#         if interes == None:           
-#            interes = sitio.punitorios
-           
-#         if tipo_interes == None:            
-#            tipo_interes = sitio.tipo_punitorios
-
-        
-
-#         if tipo_interes == None:
-#            tipo_interes = 1 
-        
-#         if interes == None:
-#            interes = 0 
-                 
-#         if importe==0:
-#             try:
-#                 importe=cuota.saldo            
-#                 if importe<=0.01:
-#                     b = DriBoleta.objects.get(id_cuota=cuota)                            
-#                     importe = b.total                                
-#             except:
-#                 importe=0      
-
-#         if tipo_interes == 10:
-#            return punitorios_rango(cuota,vencimiento,fecha_punit,importe)
-
-#         #DIARIO
-#         if tipo_interes == 2:
-#             try:
-#                 dias = (fecha_punit - vencimiento).days
-#             except:
-#                 dias = 0
-#             if dias < 0:
-#                 dias = 0 
-#             porc =  (interes / 30 ) * dias
-#         #MENSUAL
-#         elif tipo_interes == 1:
-#             try:
-#                 meses = (fecha_punit - vencimiento).days / 30
-#             except:
-#                 meses = 0
-#             if meses < 0:
-#                 meses = 0 
-#             porc =  (interes * meses)        
-        
-#         # Tipo 99 con intereses en el seg y terc venc adicionales
-#         elif tipo_interes == 99:
-#             # try:
-#                 dias = (fecha_punit-vencimiento).days
-                
-                
-#                 coeficiente_acum = 0
-#                 interes_2 = cuota.tributo.interes_2
-                
-
-#                 if interes_2 == None:
-#                     interes_2 = 0
-                
-#                 ven2 = cuota.tributo.vence_dias2
-                
-#                 if ven2 == None:
-#                     ven2 = 0
-
-                
-#                 vence_dias = cuota.tributo.vence_dias
-                
-
-#                 if cuota.tributo.id_tributo == 6:
-#                     if vence_dias == None:
-#                         vence_dias = 0
-                    
-#                     vencimiento2 = vencimiento + relativedelta(days=vence_dias)
-
-#                 if ((fecha_punit > vencimiento) and (fecha_punit <= vencimiento2)):
-#                       coeficiente_acum = coeficiente_acum + interes;
-#                       fecha_punit = vencimiento2
-#                       vencimiento = vencimiento2
-
-#                 if ((fecha_punit > vencimiento2) and (fecha_punit <= (vencimiento + relativedelta(days=ven2)))):
-#                       coeficiente_acum = coeficiente_acum + interes_2
-#                       fecha_punit = vencimiento + relativedelta(days=ven2)
-#                       vencimiento = vencimiento + relativedelta(days=ven2)
-
-#                 if (fecha_punit > (vencimiento + relativedelta(days=ven2))):
-#                       coeficiente_acum = coeficiente_acum + interes_2
-#                       vencimiento = vencimiento + relativedelta(days=ven2)
-
-               
-#                 interes = sitio.punitorios
-#                 tipo_interes = sitio.tipo_punitorios
-#                 if interes == None:           
-#                    interes = 0
-                   
-#                 if tipo_interes == None:            
-#                    tipo_interes = 1
-                
-#                 interes_especial= True
-
-#                 if tipo_interes == 2:
-#                     try:
-#                         dias = (fecha_punit - vencimiento).days
-#                     except:
-#                         dias = 0
-#                     if dias < 0:
-#                         dias = 0
-
-#                     porc =  (interes / 30 ) * dias
-
-#                 #MENSUAL
-#                 elif tipo_interes == 1:
-#                     try:
-#                         meses = (fecha_punit - vencimiento).days / 30
-#                     except:
-#                         meses = 0
-#                     if meses < 0:
-#                         meses = 0 
-#                     porc =  (interes * meses)        
-
-#                 if (porc < 0):
-#                     porc = 0
-#                     coeficiente_acum = 0
-
-#                 coeficiente_acum = coeficiente_acum + porc
-#                 porc = coeficiente_acum
-                
-#                 if (porc < 0):
-#                     porc=0
-
-#         else:
-#             try:
-#                 dias = (fecha_punit - vencimiento).days
-#             except:
-#                 dias = 0
-#             if dias < 0:
-#                 dias = 0 
-#             porc =  (interes / 30 ) * dias
-        
-#         if porc < 0:
-#             porc = 0        
-        
-#         porc = Decimal(porc).quantize(Decimal("0.001"),decimal.ROUND_FLOOR) 
-        
-#         total = Decimal(importe).quantize(Decimal("0.01")) * porc
-#         total = Decimal(total).quantize(Decimal("0.01"), decimal.ROUND_HALF_UP)        
-
-#         if settings.DEBUG:
-#             print 'importe:'+str(importe)+' porc:'+str(porc)+' interes:'+str(interes)+' dias:'+str(dias)+' total:'+str(total)
-    
-#     except Exception as e:
-#         print e.message
-#         return HttpResponse('Error') # incorrect post
-#     return total

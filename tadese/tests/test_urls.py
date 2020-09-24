@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 class ContribuyentesTest(TestCase):
-    def setUp(self):
+	def setUp(self):
 		self.config = mommy.make(Configuracion,id=000)
 		self.config.save()
 		self.user = User.objects.create_user(username='juanma', password='qwerty')
@@ -22,13 +22,13 @@ class ContribuyentesTest(TestCase):
 
 
 
-    def test_municipio(self):
-        response = self.client.get(reverse('municipio'))
-    	self.assertEqual(response.status_code, 200)
+	def test_municipio(self):
+		response = self.client.get(reverse('tadese:municipio'))
+		self.assertEqual(response.status_code, 200)
 
-    def test_padrones_responsable(self):
-        response = self.client.get(reverse('padrones_responsable'))
-    	self.assertEqual(response.status_code, 200)
+	def test_padrones_responsable(self):
+		response = self.client.get(reverse('tadese:padrones_responsable'))
+		self.assertEqual(response.status_code, 200)
 
     # def test_ver_cuotas(self):
     #     response = self.client.get(reverse('ver_cuotas'))

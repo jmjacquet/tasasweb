@@ -34,10 +34,8 @@ class Tributo(models.Model):
     class Meta:
         db_table = 'tributo'
 
-    def __unicode__(self):
-        return u'%s' % (self.descripcion)
     def __str__(self):
-        return u'%s' % (self.descripcion)
+        return u'%s' % (self.descripcion)    
         
 
     @property
@@ -55,7 +53,7 @@ class TributoInteres(models.Model):
         db_table = 'tributo_interes'        
         unique_together = ('id_tributo', 'desde','hasta')
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s - %s' % (self.id_tributo,self.interes)
 
 class Cuotas(models.Model):
@@ -90,7 +88,7 @@ class Cuotas(models.Model):
         db_table = 'cuotas'
         ordering = ['-anio','-cuota','-id_cuota']
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s --> %s' % (self.padron, self.id_padron)
 
     def get_datos(self):
@@ -152,7 +150,7 @@ class DriEstudio(models.Model):
     email = models.CharField(max_length=100, blank=True,null=True)
     class Meta:
         db_table = 'dri_estudio'
-    def __unicode__(self):
+    def __str__(self):
         return u'%s - %s' % (self.numero, self.denominacion)
 
 class DriEstudioPadron(models.Model):
@@ -176,7 +174,7 @@ class DriCuotaActividad(models.Model):
         db_table = 'dri_cuota_actividad'
         ordering = ['-actividad_principal','denominacion','id_padron']
     
-    def __unicode__(self):
+    def __str__(self):
         detalle = u'%s - %s' % (self.codigo,self.denominacion)
         if self.actividad_principal=='S':
         	detalle = u'(*) %s - %s' % (self.codigo,self.denominacion)                   
@@ -208,7 +206,7 @@ class DriBoleta(models.Model):
     pago_anterior = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
     class Meta:
         db_table = 'dri_boleta'
-    def __unicode__(self):
+    def __str__(self):
         return u'%s %s %s' % (self.id_padron,self.anio,self.mes)
 
 class DriBoleta_actividades(models.Model):
@@ -225,7 +223,7 @@ class DriBoleta_actividades(models.Model):
         default_related_name = 'boleta_actividades'
 
 
-    def __unicode__(self):
+    def __str__(self):
         detalle = u'%s' % (self.activ_descr)        
         return detalle[:200]
 
@@ -294,7 +292,7 @@ class Configuracion(models.Model):# pragma: no cover
     class Meta:
         db_table = 'configuracion'
     
-    def __unicode__(self):
+    def __str__(self):
         return u'%s' % (self.nombre)
 
 class Configuracion_vars(models.Model):# pragma: no cover
@@ -307,7 +305,7 @@ class Configuracion_vars(models.Model):# pragma: no cover
     class Meta:
         db_table = 'configuracion_vars'
     
-    def __unicode__(self):
+    def __str__(self):
         return u'%s' % (self.variable)        
 
 
@@ -321,7 +319,7 @@ class UserProfile(models.Model):# pragma: no cover
     class Meta:
         db_table = 'user_profile'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
 
 #********************************************************************
@@ -337,7 +335,7 @@ class Suscriptores(models.Model):
     class Meta:
         db_table = 'suscriptores'
     
-    def __unicode__(self):
+    def __str__(self):
         return u'%s' % (self.id)
 
 

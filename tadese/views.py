@@ -285,29 +285,6 @@ class BusquedaCuotasView(VariablesMixin,TemplateView):
         anio = int(self.kwargs.get("anio",'0'))
         
         context['anio']=anio
-        
-
-        c = cuotas_x_padron(None,idPadron).order_by('-id_cuota').first()        
-        idResp = c.id_responsable
-        resp = c.get_responsable()       
-
-        context['responsable'] = resp
-        context['padr'] = padrones_x_responsable(idResp,None)        
-        if idResp:
-            if idPadron:
-                try:
-                    p = padrones_x_responsable(idResp,idPadron).first()
-                except:
-                    p = None
-                context['padron']=p
-        
-        tributo=p['tributo']
-        context['tributo'] = tributo
-        
-        c = Cuotas.objects.raw("SELECT c.*,db.id_boleta as boleta,db.pago_anterior as pago_anterior,db.minimo_global as minimo_global,\
-                db.total as total,db.fechapago,t.CORRER_VENC_DIAS,t.CORRER_VENC_FDESDE,t.CORRER_VENC_FHASTA \
-                FROM cuotas c LEFT JOIN dri_boleta db on (c.id_cuota=db.id_cuota) LEFT JOIN tributo t on (c.tributo=t.id_tributo) \
-                WHERE c.id_padron = %s order by c.anio DESC,CAST(TRIM(c.cuota) AS SIGNED) DESC,c.vencimiento DESC",[idPadron])
             
         try:
             c = cuotas_x_padron(None,idPadron).order_by('-id_cuota').first()        
@@ -1273,10 +1250,10 @@ def mandarEmailEstudio(request,usrEstudio):
             backend = EmailBackend(host=mail_servidor, username=mail_usuario,password=mail_password,fail_silently=False)        
             email = EmailMessage( subject=asunto,body=mail_cuerpo,from_email=mail_origen,to=[to_addr],connection=backend)                
             email.send()                  
-            message=unicode("¡El e-mail fué enviado con éxito!", 'utf-8')
+            message=(u"¡El e-mail fué enviado con éxito!").encode('utf-8')                      
         return HttpResponse(message)
     else:
-        return HttpResponse(unicode("ERROR sólo AJAX", 'utf-8'))
+        return HttpResponse((u"ERROR sólo AJAX").encode('utf-8'))
 
 ##########################################################################
 # Funciones ajax para la liquidacion y cálculo de Punitorios ONLINE
@@ -1711,7 +1688,7 @@ def generarPago(request):
             if datos==[]:               
                raise Exception
         except Exception as e:
-            print( e.message)
+            print(e)
             return HttpResponse(json.dumps([]), content_type = "application/json")
         lista = []
         lista.append(url);

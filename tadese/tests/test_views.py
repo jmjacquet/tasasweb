@@ -102,7 +102,7 @@ class ContribuyentesTest(TestCase):
 		  
 
 	def test_PadronesView(self):
-		response = self.client.get(reverse('padrones_responsable'))
+		response = self.client.get(reverse('tadese:padrones_responsable'))
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'padrones_representante.html')
 
@@ -110,17 +110,17 @@ class ContribuyentesTest(TestCase):
 		self.assertNotEqual(context['padr'],None)
 		self.assertNotEqual(context['padron'],None)
 
-		response2 = self.client.get(reverse('padrones_estudio'))
+		response2 = self.client.get(reverse('tadese:padrones_estudio'))
 		self.assertEqual(response2.status_code, 302)
 
 	def test_BusquedaCuotasView(self):
-		response = self.client.get(reverse('ver_cuotas',kwargs={'idp':1}))
+		response = self.client.get(reverse('tadese:ver_cuotas',kwargs={'idp':1}))		
 		context = response.context
 		self.assertEqual(response.status_code, 200)
 		self.assertNotEqual(context['padr'],None)
 		self.assertNotEqual(context['cuotas'],None)
 
-		response2 = self.client.get(reverse('ver_cuotas', kwargs={'idp': 2}))
+		response2 = self.client.get(reverse('tadese:ver_cuotas', kwargs={'idp': 2}))
 		context = response2.context
 		self.assertEqual(context['padr'],None)
 		self.assertEqual(context['cuotas'],None)
@@ -132,17 +132,17 @@ class ContribuyentesTest(TestCase):
 		boleta = DriBoleta.objects.filter(id_boleta=self.boleta1.id_boleta).first()		
 		self.assertNotEqual(boleta, None)		
 		#La elimina OK
-		response = self.client.get(reverse('eliminar_boleta',kwargs={'idb':1}))
+		response = self.client.get(reverse('tadese:eliminar_boleta',kwargs={'idb':1}))
 		msjs = [m.level for m in messages.get_messages(response.wsgi_request)]
 		self.assertIn(messages.SUCCESS, msjs)		
 		boleta = DriBoleta.objects.filter(id_boleta=self.boleta1.id_boleta).first()
 		self.assertEqual(boleta, None)
 
 		#NO La elimina OK
-		response2 = self.client.get(reverse('eliminar_boleta',kwargs={'idb':4}))
+		response2 = self.client.get(reverse('tadese:eliminar_boleta',kwargs={'idb':4}))
 		msjs = [m.level for m in messages.get_messages(response2.wsgi_request)]
 		self.assertIn(messages.ERROR, msjs)		
-		self.assertRedirects(response2, reverse('padrones_responsable'))
+		self.assertRedirects(response2, reverse('tadese:padrones_responsable'))
 
 	
 class EstudiosTest(TestCase):
@@ -163,7 +163,7 @@ class EstudiosTest(TestCase):
 		self.cuotas = mommy.make(Cuotas,tributo=un_tributo,id_padron=1,id_responsable=2,_quantity=3)
 
 	def test_EstudiosView(self):
-		response = self.client.get(reverse('padrones_estudio'))				
+		response = self.client.get(reverse('tadese:padrones_estudio'))				
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'padrones_estudio.html')
 		
@@ -172,18 +172,18 @@ class EstudiosTest(TestCase):
 		self.assertNotEqual(context['padr'],None)
 		self.assertNotEqual(context['padron'],None)
 
-		response2 = self.client.get(reverse('padrones_responsable'))		
+		response2 = self.client.get(reverse('tadese:padrones_responsable'))		
 		self.assertEqual(response2.status_code, 302)
 
 	def test_EstudiosUpdateView(self):
-		response = self.client.get(reverse('estudio_editar',kwargs={'pk':1}))				
+		response = self.client.get(reverse('tadese:estudio_editar',kwargs={'pk':1}))				
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'estudio_update.html')
 		
 		context = response.context
 		self.assertNotEqual(context['sitio'],None)		
 
-		response2 = self.client.get(reverse('estudio_editar',kwargs={'pk':2}))		
+		response2 = self.client.get(reverse('tadese:estudio_editar',kwargs={'pk':2}))		
 		self.assertEqual(response2.status_code, 302)
 
 		
@@ -251,7 +251,7 @@ class MandarEmailTest(TestCase):
 		"""
 		Mandar email a estudios_contables con la password
 		"""        
-		response = self.client.get(reverse('mandarEmailEstudio',kwargs={'usrEstudio':'qwerty'}))		
+		response = self.client.get(reverse('tadese:mandarEmailEstudio',kwargs={'usrEstudio':'qwerty'}))		
 		self.assertEqual(response.status_code,200)
 		message=(u"ERROR sólo AJAX").encode('utf-8')		
 		self.assertEqual(response.content,message)		
@@ -261,7 +261,7 @@ class MandarEmailTest(TestCase):
 		"""
 		Mandar email a estudios_contables con la password
 		"""        
-		response = self.client.get(reverse('mandarEmailEstudio',kwargs={'usrEstudio':'qwerty'}),HTTP_X_REQUESTED_WITH='XMLHttpRequest')		
+		response = self.client.get(reverse('tadese:mandarEmailEstudio',kwargs={'usrEstudio':'qwerty'}),HTTP_X_REQUESTED_WITH='XMLHttpRequest')		
 		self.assertEqual(response.status_code,200)
 		message=(u"¡El e-mail fué enviado con éxito!").encode('utf-8')						
 		self.assertEqual(len(mail.outbox),1)
@@ -270,7 +270,7 @@ class MandarEmailTest(TestCase):
 		"""
 		Mandar email a estudios_contables con la password
 		"""        
-		response = self.client.get(reverse('mandarEmailEstudio',kwargs={'usrEstudio':'papapapa'}),HTTP_X_REQUESTED_WITH='XMLHttpRequest')				
+		response = self.client.get(reverse('tadese:mandarEmailEstudio',kwargs={'usrEstudio':'papapapa'}),HTTP_X_REQUESTED_WITH='XMLHttpRequest')				
 		self.assertEqual(len(mail.outbox),0)		
 
 	def test_error_destinatario(self):
@@ -278,7 +278,7 @@ class MandarEmailTest(TestCase):
 		Mandar email a estudios_contables con la password
 		""" 
 		self.estudio = mommy.make(DriEstudio,id_estudioc=1,usuario='qwerty',clave='qwerty',email=None)
-		response = self.client.get(reverse('mandarEmailEstudio',kwargs={'usrEstudio':'qwerty'}),HTTP_X_REQUESTED_WITH='XMLHttpRequest')				
+		response = self.client.get(reverse('tadese:mandarEmailEstudio',kwargs={'usrEstudio':'qwerty'}),HTTP_X_REQUESTED_WITH='XMLHttpRequest')				
 		message=(u"El estudio no tiene asignada una dirección de e-mail. Por favor verifique.").encode('utf-8')		
 		self.assertEqual(response.content,message)		
 		self.assertEqual(len(mail.outbox),0)
@@ -307,7 +307,7 @@ class SuscriptoresTest(TestCase):
 		self.assertEqual(s,None)
 
 	def test_suscripcion_alta_nueva(self):
-		response = self.client.get(reverse('suscripcion_alta',kwargs={'idp':1}))		
+		response = self.client.get(reverse('tadese:suscripcion_alta',kwargs={'idp':1}))		
 		msjs = [m.level for m in messages.get_messages(response.wsgi_request)]
 		self.assertIn(messages.SUCCESS, msjs)		
 		s = Suscriptores.objects.filter(id_padron=1).first()
@@ -317,7 +317,7 @@ class SuscriptoresTest(TestCase):
 	
 	def test_suscripcion_alta_edicion(self):
 		self.suscriptor = mommy.make(Suscriptores,id_padron=1,fecha_alta=date(2020,1,1),fecha_baja=None)
-		response = self.client.get(reverse('suscripcion_alta',kwargs={'idp':1}))
+		response = self.client.get(reverse('tadese:suscripcion_alta',kwargs={'idp':1}))
 		msjs = [m.level for m in messages.get_messages(response.wsgi_request)]
 		self.assertIn(messages.SUCCESS, msjs)
 		s = Suscriptores.objects.filter(id_padron=1).first()
@@ -326,18 +326,18 @@ class SuscriptoresTest(TestCase):
 		self.assertEqual(s.fecha_baja,None)	
 	
 	def test_suscripcion_alta_error(self):
-		response = self.client.get(reverse('suscripcion_alta',kwargs={'idp':3}))		
+		response = self.client.get(reverse('tadese:suscripcion_alta',kwargs={'idp':3}))		
 		msjs = [m.level for m in messages.get_messages(response.wsgi_request)]
 		self.assertIn(messages.ERROR, msjs)
 		
 	def test_suscripcion_nopuedeVer(self):
 		# self.suscriptor = mommy.make(Suscriptores,id_padron=2,fecha_alta=date(2020,1,1),fecha_baja=None)		
-		response = self.client.get(reverse('suscripcion_alta',kwargs={'idp':2}))		
+		response = self.client.get(reverse('tadese:suscripcion_alta',kwargs={'idp':2}))		
 		self.assertEqual(response.status_code,302)
 
 	def test_suscripcion_baja(self):
 		self.suscriptor = mommy.make(Suscriptores,id_padron=1,fecha_alta=date(2020,1,1),fecha_baja=None)
-		response = self.client.get(reverse('suscripcion_baja',kwargs={'idp':1}))		
+		response = self.client.get(reverse('tadese:suscripcion_baja',kwargs={'idp':1}))		
 		msjs = [m.level for m in messages.get_messages(response.wsgi_request)]
 		self.assertIn(messages.SUCCESS, msjs)		
 		s = Suscriptores.objects.filter(id_padron=1).first()
@@ -346,19 +346,19 @@ class SuscriptoresTest(TestCase):
 
 	def test_suscripcion_bajaError(self):
 		self.suscriptor = mommy.make(Suscriptores,id_padron=1,fecha_alta=date(2020,1,1),fecha_baja=None)
-		response = self.client.get(reverse('suscripcion_baja',kwargs={'idp':2}))		
+		response = self.client.get(reverse('tadese:suscripcion_baja',kwargs={'idp':2}))		
 		msjs = [m.level for m in messages.get_messages(response.wsgi_request)]
 		self.assertIn(messages.ERROR, msjs)		
 		s = Suscriptores.objects.filter(id_padron=3).first()
 		self.assertEqual(s,None)
 
-		response = self.client.get(reverse('suscripcion_baja',kwargs={'idp':3}))		
+		response = self.client.get(reverse('tadese:suscripcion_baja',kwargs={'idp':3}))		
 		msjs = [m.level for m in messages.get_messages(response.wsgi_request)]
 		self.assertIn(messages.ERROR, msjs)
 		
 # from urllib import urlencode	
-url = "%s?cuotas[]=%s&cuotas[]=%s" % (reverse("pago"), 1, 2)
-url_exito = "%s?cuotas[]=%s&cuotas[]=%s" % (reverse("pago_exito"), 1, 2)
+url = "%s?cuotas[]=%s&cuotas[]=%s" % (reverse('tadese:pago'), 1, 2)
+url_exito = "%s?cuotas[]=%s&cuotas[]=%s" % (reverse('tadese:pago_exito'), 1, 2)
 class PagoOnLineTest(TestCase):
 	def setUp(self):
 		self.config = mommy.make(Configuracion,id=000)
@@ -382,7 +382,7 @@ class PagoOnLineTest(TestCase):
 		"""
 		Sin Respuesta AJAX
 		"""        
-		response = self.client.get(reverse('pago'))		
+		response = self.client.get(reverse('tadese:pago'))		
 		self.assertEqual(response.status_code,200)
 		message=(u"ERROR sólo AJAX").encode('utf-8')		
 		self.assertEqual(response.content,message)		
@@ -395,16 +395,16 @@ class PagoOnLineTest(TestCase):
 		self.assertEqual(response.status_code,200)		
 		message=(u"ERROR sólo AJAX").encode('utf-8')
 		self.assertNotEqual(response.content,message)
-		self.assertNotEqual(response.content,'[]')
+		self.assertNotEqual(response.content,b'[]')
 
 	def test_pagos_cuotas_error(self):		
 		"""
 		Error en los parametros
 		""" 
-		url = "%s?cuota[]=%s&cu" % (reverse("pago"), 1)		
+		url = "%s?cuota[]=%s&cu" % (reverse('tadese:pago'), 1)		
 		response = self.client.get(url,HTTP_X_REQUESTED_WITH='XMLHttpRequest')		
 		self.assertEqual(response.status_code,200)						
-		self.assertEqual(response.content,'[]')		
+		self.assertEqual(response.content,b'[]')		
 
 	def test_pagos_exito(self):		
 		"""
@@ -413,24 +413,24 @@ class PagoOnLineTest(TestCase):
 		response = self.client.get(url_exito)		
 		cuotas = len(Cuotas.objects.filter(id_cuota__in=[1,2],estado=1000))				
 		self.assertNotEqual(cuotas,0)
-		self.assertRedirects(response, reverse('ver_cuotas', kwargs={'idp':1}))
+		self.assertRedirects(response, reverse('tadese:ver_cuotas', kwargs={'idp':1}))
 
 	def test_pagos_exito_error(self):		
 		"""
 		Error procesando la respuesta de éxito de Cajero24
 		""" 
-		url_exito = "%s?cuota[]=%s&cu" % (reverse("pago_exito"), 1)		
+		url_exito = "%s?cuota[]=%s&cu" % (reverse('tadese:pago_exito'), 1)		
 		response = self.client.get(url_exito)		
 		cuotas = len(Cuotas.objects.filter(id_cuota__in=[1,2],estado=1000))				
 		self.assertEqual(cuotas,0)
-		self.assertRedirects(response, reverse('padrones_responsable'))
+		self.assertRedirects(response, reverse('tadese:padrones_responsable'))
 
 	def test_pagos_error(self):		
 		"""
 		Error procesando la respuesta de éxito de Cajero24
 		""" 
-		response = self.client.get(reverse('pago_error',kwargs={'idp':0}))	
-		self.assertRedirects(response, reverse('ver_cuotas', kwargs={'idp':0}))
+		response = self.client.get(reverse('tadese:pago_error',kwargs={'idp':0}))	
+		self.assertRedirects(response, reverse('tadese:ver_cuotas', kwargs={'idp':0}))
 		
 import decimal
 from decimal import Decimal		
@@ -528,7 +528,6 @@ class PunitoriosTest(TestCase):
 		p = punitorios(self.cuota_drei,date(3000,1,1),None)		
 		tot = Decimal(23862.00).quantize(Decimal("0.01"),decimal.ROUND_HALF_UP)
 		self.assertEqual(p,tot)
-
 
 	def test_interes_config_10(self):		
 		self.config = mommy.make(Configuracion,id=000,longitudCodigoBarra=48,tipo_punitorios=2,punitorios=0.03)		
