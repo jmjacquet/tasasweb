@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: qwerty
     volumes:
-      - mysql-data:/varios/mysqldata
+      - ./varios/mysqldata:/var/lib/mysql
     ports:
       - "3306:3306"
    
@@ -34,8 +34,7 @@ services:
     links:
        - mysql5:mydb
        
-volumes:
-  mysql-data:       
+      
 
     
     
