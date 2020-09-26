@@ -1906,3 +1906,69 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'ver_cuotas' not found. 'ver_cuotas' is not a valid view function or pattern name.
 [24/Sep/2020 12:10:20] ERROR [django.server:154] "GET /drei2/24/ HTTP/1.1" 500 267641
+[26/Sep/2020 23:38:42] ERROR [django.request:222] Internal Server Error: /imprimir/162970/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.8/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/code/tadese/views.py", line 530, in imprimirPDF
+    return render_to_pdf_response(request, template, context)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 158, in render_to_pdf_response
+    pdf = render_to_pdf(template, context, using=using, encoding=encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 138, in render_to_pdf
+    return html_to_pdf(content, encoding, **kwargs)
+  File "/usr/local/lib/python3.8/site-packages/easy_pdf/rendering.py", line 64, in html_to_pdf
+    pdf = pisa.pisaDocument(src, dest, encoding=encoding,
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/document.py", line 144, in pisaDocument
+    doc.build(context.story)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 1076, in build
+    self.handle_flowable(flowables)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/doctemplate.py", line 925, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/frames.py", line 217, in _add
+    flowable.drawOn(canv, self._x + self._leftExtraIndent, y, _sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1484, in draw
+    self._drawCell(cellval, cellstyle, (x, y), (width, height))
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/tables.py", line 1607, in _drawCell
+    v.drawOn(self.canv,x,y)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 1210, in drawOn
+    _Container.drawOn(self, canv, x, y, _sW=_sW, scale=scale)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 957, in drawOn
+    c.drawOn(canv,x,y,_sW=aW-w)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 114, in drawOn
+    self._drawOn(canvas)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/platypus/flowables.py", line 95, in _drawOn
+    self.draw()#this is the bit you overload
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 661, in draw
+    Paragraph.draw(self)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1148, in draw
+    self.drawPara(self.debug)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 1645, in drawPara
+    dpl(tx, offset, lines[0], noJustifyLast and nLines == 1)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 393, in _centerDrawParaLineX
+    _putFragLine(m, tx, line)
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/reportlab_paragraph.py", line 250, in _putFragLine
+    tx._canvas.drawImage(cbDefn.image.getImage(), cur_x_s, cur_y + iy0, w, h, mask='auto')
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfgen/canvas.py", line 985, in drawImage
+    imgObj = pdfdoc.PDFImageXObject(name, image, mask=mask)
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2085, in __init__
+    self.loadImageFromSRC(source)   #it is already a PIL Image
+  File "/usr/local/lib/python3.8/site-packages/reportlab/pdfbase/pdfdoc.py", line 2181, in loadImageFromSRC
+    raw = im.getRGBData()
+  File "/usr/local/lib/python3.8/site-packages/xhtml2pdf/xhtml2pdf_reportlab.py", line 432, in getRGBData
+    im = im.convert('RGB')
+  File "/usr/local/lib/python3.8/site-packages/PIL/Image.py", line 902, in convert
+    self.load()
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 280, in load
+    raise_oserror(err_code)
+  File "/usr/local/lib/python3.8/site-packages/PIL/ImageFile.py", line 65, in raise_oserror
+    raise OSError(message + " when reading image file")
+OSError: broken data stream when reading image file
+[26/Sep/2020 23:38:42] ERROR [django.server:154] "GET /imprimir/162970/ HTTP/1.1" 500 275097

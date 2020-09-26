@@ -35,8 +35,7 @@ def login(request):
       unico_padr = False
 
     if request.method == 'POST':        
-        user = authenticate(request,username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])
-        
+        user = authenticate(request,username=request.POST['username'], password=request.POST['password'],tributo=request.POST['tributo'])        
         if user is not None:
           if user.is_active:
             django_login(request, user)

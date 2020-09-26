@@ -23,8 +23,8 @@ services:
     ports:
       - "8080:80"
       
-  django2:
-    tty: true
+  django2:        
+    tty: true        # docker run -t
     build: .
     container_name: django2       
     volumes:

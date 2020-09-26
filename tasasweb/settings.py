@@ -158,7 +158,8 @@ MESSAGE_TAGS = {message_constants.DEBUG: 'debug',
 CRISPY_TEMPLATE_PACK = 'bootstrap3'           
 
 INTERNAL_IPS = [    
-    '127.0.0.1',    
+    '127.0.0.1', 
+    '0.0.0.0'   
 ]
 
 EMAIL_HOST = 'smtp.webfaction.com'

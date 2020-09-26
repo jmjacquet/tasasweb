@@ -238,6 +238,7 @@ class PadronesView(VariablesMixin,TemplateView):
         tipoUsr=self.request.user.userprofile.tipoUsr  
         if tipoUsr!=0:
             return volverHome(self.request)
+        
         return super(PadronesView, self).dispatch(*args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -303,12 +304,12 @@ class BusquedaCuotasView(VariablesMixin,TemplateView):
                     
             if (anio>0):                
                 c = Cuotas.objects.raw("SELECT c.*,db.id_boleta as boleta,db.pago_anterior as pago_anterior,db.minimo_global as minimo_global,\
-                    db.total as total,db.fechapago,t.CORRER_VENC_DIAS,t.CORRER_VENC_FDESDE,t.CORRER_VENC_FHASTA \
+                    db.total as total,db.fechapago as fecha_boleta,t.CORRER_VENC_DIAS,t.CORRER_VENC_FDESDE,t.CORRER_VENC_FHASTA \
                     FROM cuotas c LEFT JOIN dri_boleta db on (c.id_cuota=db.id_cuota) LEFT JOIN tributo t on (c.tributo=t.id_tributo) \
                     WHERE (c.id_padron = %s)and(c.anio = %s) order by c.anio DESC,CAST(TRIM(c.cuota) AS SIGNED) DESC,c.vencimiento DESC",[idPadron,anio])
             else:
                 c = Cuotas.objects.raw("SELECT c.*,db.id_boleta as boleta,db.pago_anterior as pago_anterior,db.minimo_global as minimo_global,\
-                db.total as total,db.fechapago,t.CORRER_VENC_DIAS,t.CORRER_VENC_FDESDE,t.CORRER_VENC_FHASTA \
+                db.total as total,db.fechapago as fecha_boleta,t.CORRER_VENC_DIAS,t.CORRER_VENC_FDESDE,t.CORRER_VENC_FHASTA \
                 FROM cuotas c LEFT JOIN dri_boleta db on (c.id_cuota=db.id_cuota) LEFT JOIN tributo t on (c.tributo=t.id_tributo) \
                 WHERE c.id_padron = %s order by c.anio DESC,CAST(TRIM(c.cuota) AS SIGNED) DESC,c.vencimiento DESC",[idPadron])
 
@@ -336,8 +337,8 @@ class BusquedaCuotasView(VariablesMixin,TemplateView):
 ##########################################################################
 def armarImgCodBar(cod):# pragma: no cover
     """Devuelve la imagen(PNG) del código de barras que se le pase(el texto)"""    
-    from .imprimirPDF import get_image3
-    b  = get_image3(cod)
+    from .imprimirPDF import get_image
+    b  = get_image(cod)
     return b
 
 def generarCodBar(idc,total1,total2,vencimiento,vencimiento2):

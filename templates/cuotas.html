@@ -102,6 +102,7 @@
                                             <!--LIQUIDADA-->
                                             {% if item.boleta %}
                                                 {% if item.pago_anterior %}
+                                                    
                                                     <!--RECTIFICATIVA-->
                                                     {% if fecha_hoy <= item.fechapago %}
                                                         <a  title="Imprimir Boleta {{ item.cuota|safe }}/{{ item.anio|safe }}" onClick="window.open('{% url 'tadese:imprimirPDFBoleta' item.pk item.boleta %}');" >
@@ -110,7 +111,7 @@
                                                         <a title="Eliminar Rectificativa" onClick="alerta= alertify.dialog('confirm').set({'labels':{ok:'Aceptar', cancel:'Cancelar'},'message': '¿Desea eliminar la Boleta Rectificativa seleccionada?' ,transition:'fade','onok': function(){ window.location.href = '{% url 'tadese:eliminar_boleta' idb=item.boleta  %}'; },'oncancel': function(){ return true;} }); alerta.setting('modal', true); alerta.setHeader('ELIMINAR RECTIFICATIVA'); alerta.show(); return true;" ><i class="glyphicon glyphicon-trash iconosTabla"></i></a>
                                                 {% else %}
                                                     <!--LIQUIDADA-->
-                                                    {% if fecha_hoy <= item.fechapago %}
+                                                    {% if fecha_hoy <= item.fecha_boleta %}
                                                         <a  title="Imprimir Boleta {{ item.cuota|safe }}/{{ item.anio|safe }}" onClick="window.open('{% url 'tadese:imprimirPDF' item.pk %}');" ><span class="glyphicon glyphicon-print iconosTabla"></span></a>
                                                     {% endif %}
                                                     <a class="cuota" id="{{item.pk}}" title="Reliquidar Período DReI {{ item.cuota|safe }}/{{ item.anio|safe }} (modificar Liquidación existente)" href="{% url 'tadese:drei_reliquidarBoleta' item.boleta %}"><span class="glyphicon glyphicon-edit iconosTabla"></span></a>
