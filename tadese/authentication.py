@@ -22,8 +22,7 @@ class ContribuyentesBackend(object):
            else:
                 padr = Cuotas.objects.filter(padron__iexact=username,tributo__id_tributo=tributo).order_by('-id_cuota')[0]                                        
                 pwd_valid = True           
-          except Exception as e:
-            print(e.message)
+          except Exception as e:            
             return None                       
        else:
            return None                                                   
