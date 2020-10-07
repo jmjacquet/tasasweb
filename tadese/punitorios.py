@@ -190,8 +190,11 @@ def punitorios(c,fecha_punitorios,importe):
             if interes == None:
               interes = 0   
 
+            interes = Decimal(interes).quantize(Decimal("0.000001"),decimal.ROUND_FLOOR) 
+
             coef_calc = dias * interes / 30
-            coeficiente_acum += coef_calc
+            coeficiente_acum += coef_calc            
+            coeficiente_acum = Decimal(coeficiente_acum).quantize(Decimal("0.001"),decimal.ROUND_FLOOR)             
 
       tipo_interes = 3
     

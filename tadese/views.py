@@ -276,7 +276,7 @@ class BusquedaCuotasView(VariablesMixin,TemplateView):
         idPadron = self.kwargs.get("idp",'0')       
         
         puedeVerPadron(self.request,idPadron)
-        print("Cantidad de Queries:%s" % len(connection.queries))
+        #print("Cantidad de Queries:%s" % len(connection.queries))
         return super(BusquedaCuotasView, self).dispatch(*args, **kwargs)
     
     def get_context_data(self, **kwargs):
@@ -330,7 +330,7 @@ class BusquedaCuotasView(VariablesMixin,TemplateView):
             context['modif_bases_imp'] = getConfigVars().get('modif_bases_imp', {}).get('texto','N')=='S'            
         except:
             pass
-        print("Cantidad de Queries:%s" % len(connection.queries))
+        
         return context
 
 
