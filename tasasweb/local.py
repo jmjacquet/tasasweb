@@ -11,7 +11,7 @@ DATABASES = {
         'NAME': 'gg_prueba',           # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
         'PASSWORD': 'qwerty',            # Not used with sqlite3.
-        'HOST': 'mydb',                   # Set to empty string for localhost. Not used with sqlite3.
+        'HOST': 'mysql5',                   # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '3306',                      # Set to empty string for default.
         'OPTIONS':{
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
