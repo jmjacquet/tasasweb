@@ -21,7 +21,7 @@ class APICuotasViewSet(viewsets.ModelViewSet):
 	search_fields = ['padron','id_padron']
 	filter_backends = (filters.SearchFilter,)
 	serializer_class = CuotasSerializer
-	queryset = Cuotas.objects.all().select_related('tributo')[:1000]
+	queryset = Cuotas.objects.all().select_related('tributo')
 	permission_classes = (AllowAny,)
 
 
@@ -35,7 +35,7 @@ class APICuotasViewSet(viewsets.ModelViewSet):
 		cuotas = self.get_queryset()
 		if request.user.is_authenticated():     
 			idResp= int(request.user.userprofile.id_responsable)	
-			cuotas = cuotas.filter(id_responsable=idResp)
+			cuotas = cuotas.filter(id_responsable=idResp)[:1000]
 		else:
 			cuotas = cuotas[:1000]
 		cant=len(cuotas)		
@@ -44,20 +44,25 @@ class APICuotasViewSet(viewsets.ModelViewSet):
 
 	@action(detail=False)
 	def ultimas_cuotas_puras(self, request):		
-		cuotas = self.get_queryset()
+		cuotas = self.get_queryset()[:1000]
 		cant=len(cuotas)		
 		serializer = CuotasSerializer(cuotas, many=True)
 		return Response(serializer.data)
 
 	def list(self, request ):
-		cuotas = self.get_queryset()
+		id_padron =request.query_params.get('id_padron', None)
+		if id_padron:
+			cuotas = self.get_queryset().filter(id_padron=id_padron)
+		else:
+			cuotas = self.get_queryset()
+		
 		cant=len(cuotas)
 		serializer = CuotasSerializer(cuotas, many=True)
 		return Response({'data':serializer.data,'cantidad':cant})
 
 	@action(detail=False)
 	def cuotas_puras(self,request):
-		cuotas = self.get_queryset().annotate(tributo_abreviatura=F('tributo__abreviatura'),tributo_nombre=F('tributo__descripcion'),estado_nombre=F('get_estado')).values()				
+		cuotas = self.get_queryset().annotate(tributo_abreviatura=F('tributo__abreviatura'),tributo_nombre=F('tributo__descripcion'),estado_nombre=F('get_estado')).values()[:1000]				
 		cant=len(cuotas)
 		# cuotas = Cuotas.objects.all()[:100]
 		# serializer = CuotasSerializer(cuotas, many=True)
@@ -78,7 +83,11 @@ class APIBoletasViewSet(viewsets.ModelViewSet):
 		return response
 
 	def list(self, request ):
-		boletas = self.get_queryset()
+		id_padron =request.query_params.get('id_padron', None)
+		if id_padron:
+			boletas = self.get_queryset().filter(id_padron=id_padron)
+		else:
+			boletas = self.get_queryset()
 		cant=len(boletas)
 		serializer = BoletasSerializer(boletas, many=True)
 		return Response({'data':serializer.data,'cantidad':cant})
