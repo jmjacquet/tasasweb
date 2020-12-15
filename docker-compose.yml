@@ -1,28 +1,5 @@
 version: '3'
-services:
-  mysql5:
-    container_name: mysql5
-    image: mysql:5.7
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: qwerty
-    volumes:
-      - ./varios/mysqldata:/var/lib/mysql
-    ports:
-      - "3306:3306"
-   
-  phpmyadmin:
-    container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin:5.0.1
-    restart: always
-    environment:
-      PMA_HOST: mysql5
-      PMA_USER: root
-      PMA_PASSWORD: qwerty
-      UPLOAD_LIMIT: 200M
-    ports:
-      - "8080:80"
-      
+services:    
   django2:        
     tty: true        # docker run -t
     build: .
@@ -31,8 +8,7 @@ services:
      - .:/code
     ports:
      - "8000:8000"
-    links:
-       - mysql5:localhost
+    
 
 
        
