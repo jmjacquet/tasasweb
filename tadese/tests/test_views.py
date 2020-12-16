@@ -464,7 +464,7 @@ class PunitoriosTest(TestCase):
 
 		""" Vencido 2do venc """		
 		p = punitorios(self.cuota_urbano,date(3000,1,1),None)		
-		tot = Decimal(23837.76).quantize(Decimal("0.01"),decimal.ROUND_HALF_UP)
+		tot = Decimal(23837.70).quantize(Decimal("0.01"),decimal.ROUND_HALF_UP)
 		self.assertEqual(p,tot)
 
 		""" DREI """
@@ -551,7 +551,7 @@ class PunitoriosTest(TestCase):
 
 		""" Vencido 2do venc """		
 		p = punitorios(self.cuota_urbano,date(3000,1,1),None)				
-		tot = Decimal(812276.57).quantize(Decimal("0.01"),decimal.ROUND_HALF_UP)
+		tot = Decimal(812276.21).quantize(Decimal("0.01"),decimal.ROUND_HALF_UP)
 		self.assertEqual(p,tot)
 
 		""" DREI """
@@ -587,7 +587,7 @@ class PunitoriosTest(TestCase):
 
 		""" Vencido 2do venc """		
 		p = punitorios(self.cuota_urbano,date(3000,1,1),None)				
-		tot = Decimal(812276.57).quantize(Decimal("0.01"),decimal.ROUND_HALF_UP)
+		tot = Decimal(812276.21).quantize(Decimal("0.01"),decimal.ROUND_HALF_UP)
 		self.assertEqual(p,tot)
 
 		""" DREI """
