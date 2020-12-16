@@ -3,7 +3,7 @@ from rest_framework import serializers
 from tadese.models import Cuotas,Tributo,DriBoleta,DriBoleta_actividades
 from tadese.utilidades import ESTADOS
 
-class ChoiceField(serializers.ChoiceField):
+class ChoiceField(serializers.ChoiceField):# pragma: no cover
 
     def to_representation(self, obj):
         return self._choices[obj]
