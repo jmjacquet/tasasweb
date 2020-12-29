@@ -33,6 +33,14 @@ services:
      - "8000:8000"
     links:
        - mysql5:localhost
+       - redis:redis
+
+  redis:
+    container_name: redis
+    image: redis
+    command: redis-server 
+    ports:
+      - '6379:6379'
 
 
        

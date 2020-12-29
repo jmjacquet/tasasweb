@@ -67,16 +67,23 @@ from django.db import connection
 # 		# cuotas = Cuotas.objects.all()[:100]
 # 		# serializer = CuotasSerializer(cuotas, many=True)
 # 		return Response({'data':cuotas,'cantidad':cant})
+from django.utils.decorators import method_decorator
+from django.conf import settings
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
+from django.views.decorators.cache import cache_page
+
+CACHE_TTL = 60 * 5
 
 
+#@method_decorator(cache_page(CACHE_TTL), name='dispatch') # NEW
 class CuotasListView(generics.ListAPIView):    
     serializer_class = CuotasSerializer    
     queryset = Cuotas.objects.all().select_related('tributo')
-
+        
     def dispatch(self, *args, **kwargs):
         response = super(CuotasListView, self).dispatch(*args, **kwargs)
         # print "Cantidad de Queries:%s" % len(connection.queries) 
-        # print connection.queries          
+        print(connection.queries)
         return response
     
 
@@ -137,7 +144,6 @@ class BoletasListView(generics.ListAPIView):
 		# print "Cantidad de Queries:%s" % len(connection.queries) 
 		# print connection.queries          
 		return response
-
 
 	def list(self, request ):
 		id_padron =request.query_params.get('id_padron', None)
